@@ -1,29 +1,34 @@
-async function sumUpTo(n: number) {
-  let sum = await s(0, 1);
+async function q(n: number) {
+  let a = await s(0, 1);
   for (let i = await s(0, 1); i < (await s(n, 1)); await s(i++, 1)) {
-    for (const v of g(i, 1)) {
-      sum += await v;
+    for (const v of g(i, 2)) {
+      a += await v;
     }
   }
-  return sum;
+  return a;
 }
 
-async function s<T>(i: T, counter: number): Promise<T> {
-  if (counter < 0) {
+async function s<T>(i: T, c: number): Promise<T> {
+  if (c < 0) {
     return new Promise((r, _r) => {
       return r(i);
     });
   } else {
-    return await s(i, counter - 1);
+    return s(i, c - 1);
   }
 }
 
-function* g<T>(i: T, counter: number) {
-  if (counter < 0) {
+function* g<T>(i: T, c: number): Generator<Promise<T>> {
+  if (c < 0) {
     yield new Promise<T>((r, _r) => {
       return r(i);
     });
   } else {
-    yield* g(i, counter - 1);
+    yield* g(i, c - 1);
   }
 }
+
+async function main() {
+  console.log(await q(4));
+}
+main();

@@ -45,72 +45,87 @@ var __values = (this && this.__values) || function(o) {
     };
     throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
 };
-function sumUpTo(n) {
+function q(n) {
     return __awaiter(this, void 0, void 0, function () {
-        var sum, i, _a, _i, _b, v, _c;
-        return __generator(this, function (_d) {
-            switch (_d.label) {
+        var a, i, _a, _b, _c, v, _d, e_1_1;
+        var e_1, _e;
+        return __generator(this, function (_f) {
+            switch (_f.label) {
                 case 0: return [4 /*yield*/, s(0, 1)];
                 case 1:
-                    sum = _d.sent();
+                    a = _f.sent();
                     return [4 /*yield*/, s(0, 1)];
                 case 2:
-                    i = _d.sent();
-                    _d.label = 3;
+                    i = _f.sent();
+                    _f.label = 3;
                 case 3:
                     _a = i;
                     return [4 /*yield*/, s(n, 1)];
                 case 4:
-                    if (!(_a < (_d.sent()))) return [3 /*break*/, 10];
-                    _i = 0, _b = g(i, 1);
-                    _d.label = 5;
+                    if (!(_a < (_f.sent()))) return [3 /*break*/, 14];
+                    _f.label = 5;
                 case 5:
-                    if (!(_i < _b.length)) return [3 /*break*/, 8];
-                    v = _b[_i];
-                    _c = sum;
-                    return [4 /*yield*/, v];
+                    _f.trys.push([5, 10, 11, 12]);
+                    _b = (e_1 = void 0, __values(g(i, 2))), _c = _b.next();
+                    _f.label = 6;
                 case 6:
-                    sum = _c + _d.sent();
-                    _d.label = 7;
+                    if (!!_c.done) return [3 /*break*/, 9];
+                    v = _c.value;
+                    _d = a;
+                    return [4 /*yield*/, v];
                 case 7:
-                    _i++;
-                    return [3 /*break*/, 5];
-                case 8: return [4 /*yield*/, s(i++, 1)];
-                case 9:
-                    _d.sent();
+                    a = _d + _f.sent();
+                    _f.label = 8;
+                case 8:
+                    _c = _b.next();
+                    return [3 /*break*/, 6];
+                case 9: return [3 /*break*/, 12];
+                case 10:
+                    e_1_1 = _f.sent();
+                    e_1 = { error: e_1_1 };
+                    return [3 /*break*/, 12];
+                case 11:
+                    try {
+                        if (_c && !_c.done && (_e = _b.return)) _e.call(_b);
+                    }
+                    finally { if (e_1) throw e_1.error; }
+                    return [7 /*endfinally*/];
+                case 12: return [4 /*yield*/, s(i++, 1)];
+                case 13:
+                    _f.sent();
                     return [3 /*break*/, 3];
-                case 10: return [2 /*return*/, sum];
+                case 14: return [2 /*return*/, a];
             }
         });
     });
 }
-function s(i, counter) {
+function s(i, c) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    if (!(counter < 0)) return [3 /*break*/, 1];
-                    return [2 /*return*/, new Promise(function (r, _r) {
-                            return r(i);
-                        })];
-                case 1: return [4 /*yield*/, s(i, counter - 1)];
-                case 2: return [2 /*return*/, _a.sent()];
+            if (c < 0) {
+                return [2 /*return*/, new Promise(function (r, _r) {
+                        return r(i);
+                    })];
             }
+            else {
+                return [2 /*return*/, s(i, c - 1)];
+            }
+            return [2 /*return*/];
         });
     });
 }
-function g(i, counter) {
+function g(i, c) {
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                if (!(counter < 0)) return [3 /*break*/, 2];
+                if (!(c < 0)) return [3 /*break*/, 2];
                 return [4 /*yield*/, new Promise(function (r, _r) {
                         return r(i);
                     })];
             case 1:
                 _a.sent();
                 return [3 /*break*/, 4];
-            case 2: return [5 /*yield**/, __values(g(i, counter - 1))];
+            case 2: return [5 /*yield**/, __values(g(i, c - 1))];
             case 3:
                 _a.sent();
                 _a.label = 4;
@@ -118,3 +133,19 @@ function g(i, counter) {
         }
     });
 }
+function main() {
+    return __awaiter(this, void 0, void 0, function () {
+        var _a, _b;
+        return __generator(this, function (_c) {
+            switch (_c.label) {
+                case 0:
+                    _b = (_a = console).log;
+                    return [4 /*yield*/, q(4)];
+                case 1:
+                    _b.apply(_a, [_c.sent()]);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+main();
