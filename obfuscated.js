@@ -34,33 +34,52 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __values = (this && this.__values) || function(o) {
+    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+    if (m) return m.call(o);
+    if (o && typeof o.length === "number") return {
+        next: function () {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+};
 function sumUpTo(n) {
     return __awaiter(this, void 0, void 0, function () {
-        var sum, i, _a, _b;
-        return __generator(this, function (_c) {
-            switch (_c.label) {
+        var sum, i, _a, _i, _b, v, _c;
+        return __generator(this, function (_d) {
+            switch (_d.label) {
                 case 0: return [4 /*yield*/, s(0, 1)];
                 case 1:
-                    sum = _c.sent();
+                    sum = _d.sent();
                     return [4 /*yield*/, s(0, 1)];
                 case 2:
-                    i = _c.sent();
-                    _c.label = 3;
+                    i = _d.sent();
+                    _d.label = 3;
                 case 3:
                     _a = i;
                     return [4 /*yield*/, s(n, 1)];
                 case 4:
-                    if (!(_a < (_c.sent()))) return [3 /*break*/, 8];
-                    _b = sum;
-                    return [4 /*yield*/, s(i, 1)];
+                    if (!(_a < (_d.sent()))) return [3 /*break*/, 10];
+                    _i = 0, _b = g(i, 1);
+                    _d.label = 5;
                 case 5:
-                    sum = _b + _c.sent();
-                    _c.label = 6;
-                case 6: return [4 /*yield*/, s(i++, 1)];
+                    if (!(_i < _b.length)) return [3 /*break*/, 8];
+                    v = _b[_i];
+                    _c = sum;
+                    return [4 /*yield*/, v];
+                case 6:
+                    sum = _c + _d.sent();
+                    _d.label = 7;
                 case 7:
-                    _c.sent();
+                    _i++;
+                    return [3 /*break*/, 5];
+                case 8: return [4 /*yield*/, s(i++, 1)];
+                case 9:
+                    _d.sent();
                     return [3 /*break*/, 3];
-                case 8: return [2 /*return*/, sum];
+                case 10: return [2 /*return*/, sum];
             }
         });
     });
@@ -78,5 +97,24 @@ function s(i, counter) {
                 case 2: return [2 /*return*/, _a.sent()];
             }
         });
+    });
+}
+function g(i, counter) {
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                if (!(counter < 0)) return [3 /*break*/, 2];
+                return [4 /*yield*/, new Promise(function (r, _r) {
+                        return r(i);
+                    })];
+            case 1:
+                _a.sent();
+                return [3 /*break*/, 4];
+            case 2: return [5 /*yield**/, __values(g(i, counter - 1))];
+            case 3:
+                _a.sent();
+                _a.label = 4;
+            case 4: return [2 /*return*/];
+        }
     });
 }

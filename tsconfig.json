@@ -3,7 +3,8 @@
     "noImplicitAny": true,
     "strictNullChecks": true,
     "removeComments": true,
-    "lib": ["es6", "dom"]
+    "lib": ["es6", "dom"],
+    "downlevelIteration": true
   },
   "files": [
     "original.ts"
