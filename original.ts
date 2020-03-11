@@ -7,5 +7,7 @@ async function sumUpTo(n: number) {
 }
 
 async function identity(i: any) {
-  return i;
+  return new Promise((r, _r) => {
+    return r(i);
+  });
 }
