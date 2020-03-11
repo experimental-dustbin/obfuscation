@@ -39,24 +39,24 @@ function sumUpTo(n) {
         var sum, i, _a, _b;
         return __generator(this, function (_c) {
             switch (_c.label) {
-                case 0: return [4 /*yield*/, identity(0, 1)];
+                case 0: return [4 /*yield*/, s(0, 1)];
                 case 1:
                     sum = _c.sent();
-                    return [4 /*yield*/, identity(0, 1)];
+                    return [4 /*yield*/, s(0, 1)];
                 case 2:
                     i = _c.sent();
                     _c.label = 3;
                 case 3:
                     _a = i;
-                    return [4 /*yield*/, identity(n, 1)];
+                    return [4 /*yield*/, s(n, 1)];
                 case 4:
                     if (!(_a < (_c.sent()))) return [3 /*break*/, 8];
                     _b = sum;
-                    return [4 /*yield*/, identity(i, 1)];
+                    return [4 /*yield*/, s(i, 1)];
                 case 5:
                     sum = _b + _c.sent();
                     _c.label = 6;
-                case 6: return [4 /*yield*/, identity(i++, 1)];
+                case 6: return [4 /*yield*/, s(i++, 1)];
                 case 7:
                     _c.sent();
                     return [3 /*break*/, 3];
@@ -65,7 +65,7 @@ function sumUpTo(n) {
         });
     });
 }
-function identity(i, counter) {
+function s(i, counter) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -74,7 +74,7 @@ function identity(i, counter) {
                     return [2 /*return*/, new Promise(function (r, _r) {
                             return r(i);
                         })];
-                case 1: return [4 /*yield*/, identity(i, counter - 1)];
+                case 1: return [4 /*yield*/, s(i, counter - 1)];
                 case 2: return [2 /*return*/, _a.sent()];
             }
         });
