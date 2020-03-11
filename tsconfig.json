@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "removeComments": true,
+    "lib": ["es6", "dom"]
+  },
+  "files": [
+    "original.ts"
+  ],
+  "exclude": [
+    "*.js"
+  ]
+}

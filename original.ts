@@ -1,13 +1,17 @@
 async function sumUpTo(n: number) {
-  let sum = 0;
-  for (let i = 0; i < n; i++) {
-    sum += await identity(i) as number;
+  let sum = await identity(0, 1);
+  for (let i = await identity(0, 1); i < (await identity(n, 1)); await identity(i++, 1)) {
+    sum += await identity(i, 1);
   }
   return sum;
 }
 
-async function identity(i: any) {
-  return new Promise((r, _r) => {
-    return r(i);
-  });
+async function identity<T>(i: T, counter: number): Promise<T> {
+  if (counter < 0) {
+    return new Promise((r, _r) => {
+      return r(i);
+    });
+  } else {
+    return await identity(i, counter - 1);
+  }
 }
