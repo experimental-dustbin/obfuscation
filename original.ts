@@ -5,3 +5,7 @@ async function sumUpTo(n: number) {
   }
   return sum;
 }
+
+async function identity(i: any) {
+  return i;
+}
